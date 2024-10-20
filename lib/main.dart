@@ -1,3 +1,4 @@
+import 'package:autotrack/models/car.dart';
 import 'package:flutter/material.dart';
 import 'screens/add_car.dart';
 import 'screens/car_list.dart';
@@ -15,6 +16,7 @@ class AutoTrackApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: HomeScreen(),
       title: 'AutoTrack',
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.blue[50],

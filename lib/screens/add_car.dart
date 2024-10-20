@@ -85,7 +85,7 @@ class _AddCarScreenState extends State<AddCarScreen> {
     );
 
     // Salvarea mașinii în baza de date
-    await DBHelper().insertCar(newCar.toMap());
+    //await DBHelper().insertCar(newCar.toMap());
 
     // Notificarea ecranului principal despre adăugare și curățarea câmpurilor
     widget.onAddCar(newCar);

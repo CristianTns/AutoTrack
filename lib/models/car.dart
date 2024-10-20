@@ -49,14 +49,14 @@ class _MyCarAppState extends State<MyCarApp> {
         year: year,
         mileage: mileage,
         fuelType: fuel);
-    await DBHelper().insertCar(newCar.toMap());
+  //  await DBHelper().insertCar(newCar.toMap());
     _getCars();
   }
 
   void _getCars() async {
-    final cars = await DBHelper().getCars();
+  // final cars = await DBHelper().getCars();
     setState(() {
-      _cars = cars.map((car) => Car.fromMap(car)).toList();
+      //_cars = cars.map((car) => Car.fromMap(car)).toList();
     });
   }
 
