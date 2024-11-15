@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/expense.dart';
 import 'add_expenses.dart';
+import '../services/api_service.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   final String category;

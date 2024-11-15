@@ -1,12 +1,11 @@
 import 'package:autotrack/models/car.dart';
 import 'package:flutter/material.dart';
-import 'screens/add_car.dart';
 import 'screens/car_list.dart';
 import 'screens/expenses.dart';
 import 'screens/graphs.dart';
 import 'screens/notifications.dart';
 import 'screens/profile.dart';
-import 'screens/registration.dart'; // Import the registration screen
+// Import the registration screen
 
 void main() {
   runApp(AutoTrackApp());

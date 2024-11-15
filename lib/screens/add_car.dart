@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/car.dart';
-import 'package:autotrack/db_helper.dart';
+import '../services/api_service.dart'; // adaptează această cale dacă e necesar
+
 
 class AddCarScreen extends StatefulWidget {
   final Function(Car) onAddCar;
@@ -84,17 +85,21 @@ class _AddCarScreenState extends State<AddCarScreen> {
       fuelType: selectedFuelType!,
     );
 
-    // Salvarea mașinii în baza de date
-    //await DBHelper().insertCar(newCar.toMap());
+    // Salvează vehiculul în baza de date prin API
+    try {
+      await ApiService().addVehicle(make, model, year, mileageValue, selectedFuelType!);
+      widget.onAddCar(newCar);
+      clearFields();
 
-    // Notificarea ecranului principal despre adăugare și curățarea câmpurilor
-    widget.onAddCar(newCar);
-    clearFields();
-
-    // Afișează mesaj de succes și închide ecranul
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Car added successfully')));
-    Navigator.of(context).pop();
+      // Afișează mesaj de succes și închide ecranul
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Car added successfully')));
+      Navigator.of(context).pop();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to add car')));
+      print('Eroare la adăugarea vehiculului: $e');
+    }
   }
+
 
   @override
   Widget build(BuildContext context) {

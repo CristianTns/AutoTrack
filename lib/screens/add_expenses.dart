@@ -77,10 +77,13 @@ class AddExpenseScreen extends StatelessWidget {
                       firstDate: DateTime(2000),
                       lastDate: DateTime(2101),
                     );
-                    if (pickedDate != null) {
-                      dateController.text =
-                      "${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
-                    }
+                    //dateController.text =
+                    //"${pickedDate.day}-${pickedDate.month}-${pickedDate.year}";
+
+                    dateController.text = pickedDate != null
+                        ? "${pickedDate!.day}-${pickedDate!.month}-${pickedDate!.year}"
+                        : '';
+
                   },
                 ),
               ),
