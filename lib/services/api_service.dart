@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../data/local_url.dart';
+
+const String localhost = 'http://192.168.56.1:3000';
 
 class ApiService {
-  final String apiUrl = 'http://localhost:3000';
+  final String apiUrl = 'http://192.168.56.1:3000';
 
 
   Future<void> addVehicle(String brand, String model, int year, int mileage, String fuelType) async {
